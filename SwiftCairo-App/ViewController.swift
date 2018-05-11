@@ -78,7 +78,7 @@ extension ViewController: APIRequestHandler {
         callServerWith(SwiftCairoUser.self, requestURL: request) {[weak self] (response) in
             switch response {
             case .failure(let error):
-                print(error)
+                print(error?.localizedDescription ?? "Unknown error when calling callWithServer(\(SwiftCairoUser.self), requestURL: \(request)")
             case .success(let value):
                 self?.textView.text = value.apiToken
             }
