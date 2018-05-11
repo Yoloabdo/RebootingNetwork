@@ -6,6 +6,7 @@ target 'SwiftCairo-App' do
   use_frameworks!
 
   # Pods for SwiftCairo-App
-  pod 'Alamofire'
+
+	pod 'Alamofire'
 
 end

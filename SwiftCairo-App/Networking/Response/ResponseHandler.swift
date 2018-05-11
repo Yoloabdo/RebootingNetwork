@@ -25,10 +25,13 @@ extension HandleAlamoResponse {
         if let error = response.error {
             // handle errors
             completion?(ServerResponse<T>.failure(error as? LocalizedError))
+            print(error.localizedDescription)
             return
         }
         guard let data = response.result.value else {
             completion?(ServerResponse<T>.failure(response.error as? LocalizedError))
+            print(response.error?.localizedDescription ?? "serverResponse returned with failure condition")
+
             return
         }
         do {
@@ -38,6 +41,7 @@ extension HandleAlamoResponse {
                 completion?(ServerResponse<T>.success(modules))
             }else{
                 completion?(ServerResponse<T>.failure(APIError(rawValue: response.status)))
+                print(APIError(rawValue: response.status) ?? "Unknown error")
             }
         }catch {
             completion?(ServerResponse<T>.failure(error as? LocalizedError))
