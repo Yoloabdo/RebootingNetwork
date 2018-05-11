@@ -7,11 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50720AD220A2DC9800BCBF51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AD120A2DC9800BCBF51 /* AppDelegate.swift */; };
+		2DEEBC5D6242D8A0008EFEF9 /* Pods_SwiftCairo_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B124807A4DF3A7D3303C1D8 /* Pods_SwiftCairo_App.framework */; };
 		50720AD420A2DC9800BCBF51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AD320A2DC9800BCBF51 /* ViewController.swift */; };
 		50720AD720A2DC9800BCBF51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50720AD520A2DC9800BCBF51 /* Main.storyboard */; };
 		50720AD920A2DC9A00BCBF51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50720AD820A2DC9A00BCBF51 /* Assets.xcassets */; };
 		50720ADC20A2DC9A00BCBF51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50720ADA20A2DC9A00BCBF51 /* LaunchScreen.storyboard */; };
+		50720AFD20A2E0D600BCBF51 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AE520A2DD0800BCBF51 /* UserRequest.swift */; };
+		50720AFE20A2E0D600BCBF51 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AE620A2DD0800BCBF51 /* URLRequestBuilder.swift */; };
+		50720AFF20A2E0D600BCBF51 /* CodableInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AE920A2DD0800BCBF51 /* CodableInit.swift */; };
+		50720B0020A2E0D600BCBF51 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AEA20A2DD0800BCBF51 /* ResponseHandler.swift */; };
+		50720B0120A2E0D600BCBF51 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AEB20A2DD0800BCBF51 /* APIError.swift */; };
+		50720B0220A2E0D600BCBF51 /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AEC20A2DD0800BCBF51 /* ServerResponse.swift */; };
+		50720B0320A2E0D600BCBF51 /* DefaultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AED20A2DD0800BCBF51 /* DefaultResponse.swift */; };
+		50720B0420A2E0D600BCBF51 /* APIRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AF120A2DD0800BCBF51 /* APIRequestHandler.swift */; };
+		50720B0620A2E3CF00BCBF51 /* SwiftCairoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720B0520A2E3CF00BCBF51 /* SwiftCairoUser.swift */; };
+		50720B0720A2FD8300BCBF51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AD120A2DC9800BCBF51 /* AppDelegate.swift */; };
+		50720B0920A2FEAD00BCBF51 /* AlamofireResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720B0820A2FEAD00BCBF51 /* AlamofireResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +33,19 @@
 		50720AD820A2DC9A00BCBF51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50720ADB20A2DC9A00BCBF51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50720ADD20A2DC9A00BCBF51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50720AE520A2DD0800BCBF51 /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		50720AE620A2DD0800BCBF51 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
+		50720AE920A2DD0800BCBF51 /* CodableInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableInit.swift; sourceTree = "<group>"; };
+		50720AEA20A2DD0800BCBF51 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
+		50720AEB20A2DD0800BCBF51 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		50720AEC20A2DD0800BCBF51 /* ServerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
+		50720AED20A2DD0800BCBF51 /* DefaultResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultResponse.swift; sourceTree = "<group>"; };
+		50720AF120A2DD0800BCBF51 /* APIRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestHandler.swift; sourceTree = "<group>"; };
+		50720B0520A2E3CF00BCBF51 /* SwiftCairoUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCairoUser.swift; sourceTree = "<group>"; };
+		50720B0820A2FEAD00BCBF51 /* AlamofireResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireResponse.swift; sourceTree = "<group>"; };
+		6B124807A4DF3A7D3303C1D8 /* Pods_SwiftCairo_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCairo_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C2A51ACBAA599E53E0DD61F /* Pods-SwiftCairo-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCairo-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftCairo-App/Pods-SwiftCairo-App.debug.xcconfig"; sourceTree = "<group>"; };
+		C2A7DAD6568D8163CFC992CD /* Pods-SwiftCairo-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCairo-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftCairo-App/Pods-SwiftCairo-App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DEEBC5D6242D8A0008EFEF9 /* Pods_SwiftCairo_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +65,8 @@
 			children = (
 				50720AD020A2DC9800BCBF51 /* SwiftCairo-App */,
 				50720ACF20A2DC9800BCBF51 /* Products */,
+				913F5F18D1116BC5063A6941 /* Pods */,
+				68E56C497C81CFD51E43E09C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +81,73 @@
 		50720AD020A2DC9800BCBF51 /* SwiftCairo-App */ = {
 			isa = PBXGroup;
 			children = (
+				50720AE320A2DD0800BCBF51 /* Networking */,
 				50720AD120A2DC9800BCBF51 /* AppDelegate.swift */,
 				50720AD320A2DC9800BCBF51 /* ViewController.swift */,
 				50720AD520A2DC9800BCBF51 /* Main.storyboard */,
 				50720AD820A2DC9A00BCBF51 /* Assets.xcassets */,
 				50720ADA20A2DC9A00BCBF51 /* LaunchScreen.storyboard */,
 				50720ADD20A2DC9A00BCBF51 /* Info.plist */,
+				50720B0520A2E3CF00BCBF51 /* SwiftCairoUser.swift */,
 			);
 			path = "SwiftCairo-App";
+			sourceTree = "<group>";
+		};
+		50720AE320A2DD0800BCBF51 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				50720AE420A2DD0800BCBF51 /* Requests */,
+				50720AE820A2DD0800BCBF51 /* Response */,
+				50720AEE20A2DD0800BCBF51 /* RequestHandlers */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		50720AE420A2DD0800BCBF51 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				50720AE520A2DD0800BCBF51 /* UserRequest.swift */,
+				50720AE620A2DD0800BCBF51 /* URLRequestBuilder.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		50720AE820A2DD0800BCBF51 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				50720AE920A2DD0800BCBF51 /* CodableInit.swift */,
+				50720AEA20A2DD0800BCBF51 /* ResponseHandler.swift */,
+				50720AEB20A2DD0800BCBF51 /* APIError.swift */,
+				50720AEC20A2DD0800BCBF51 /* ServerResponse.swift */,
+				50720AED20A2DD0800BCBF51 /* DefaultResponse.swift */,
+				50720B0820A2FEAD00BCBF51 /* AlamofireResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		50720AEE20A2DD0800BCBF51 /* RequestHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				50720AF120A2DD0800BCBF51 /* APIRequestHandler.swift */,
+			);
+			path = RequestHandlers;
+			sourceTree = "<group>";
+		};
+		68E56C497C81CFD51E43E09C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6B124807A4DF3A7D3303C1D8 /* Pods_SwiftCairo_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		913F5F18D1116BC5063A6941 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C2A51ACBAA599E53E0DD61F /* Pods-SwiftCairo-App.debug.xcconfig */,
+				C2A7DAD6568D8163CFC992CD /* Pods-SwiftCairo-App.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50720AE020A2DC9A00BCBF51 /* Build configuration list for PBXNativeTarget "SwiftCairo-App" */;
 			buildPhases = (
+				36CAC034CE4B7FEA946C626F /* [CP] Check Pods Manifest.lock */,
 				50720ACA20A2DC9800BCBF51 /* Sources */,
 				50720ACB20A2DC9800BCBF51 /* Frameworks */,
 				50720ACC20A2DC9800BCBF51 /* Resources */,
+				BAA07A6A2FAFEA3F2BA95F99 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +218,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		36CAC034CE4B7FEA946C626F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftCairo-App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAA07A6A2FAFEA3F2BA95F99 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftCairo-App/Pods-SwiftCairo-App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftCairo-App/Pods-SwiftCairo-App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		50720ACA20A2DC9800BCBF51 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50720B0720A2FD8300BCBF51 /* AppDelegate.swift in Sources */,
+				50720AFD20A2E0D600BCBF51 /* UserRequest.swift in Sources */,
+				50720AFE20A2E0D600BCBF51 /* URLRequestBuilder.swift in Sources */,
+				50720AFF20A2E0D600BCBF51 /* CodableInit.swift in Sources */,
+				50720B0020A2E0D600BCBF51 /* ResponseHandler.swift in Sources */,
+				50720B0920A2FEAD00BCBF51 /* AlamofireResponse.swift in Sources */,
+				50720B0120A2E0D600BCBF51 /* APIError.swift in Sources */,
+				50720B0220A2E0D600BCBF51 /* ServerResponse.swift in Sources */,
+				50720B0320A2E0D600BCBF51 /* DefaultResponse.swift in Sources */,
+				50720B0620A2E3CF00BCBF51 /* SwiftCairoUser.swift in Sources */,
+				50720B0420A2E0D600BCBF51 /* APIRequestHandler.swift in Sources */,
 				50720AD420A2DC9800BCBF51 /* ViewController.swift in Sources */,
-				50720AD220A2DC9800BCBF51 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +415,7 @@
 		};
 		50720AE120A2DC9A00BCBF51 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C2A51ACBAA599E53E0DD61F /* Pods-SwiftCairo-App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +434,7 @@
 		};
 		50720AE220A2DC9A00BCBF51 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2A7DAD6568D8163CFC992CD /* Pods-SwiftCairo-App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
