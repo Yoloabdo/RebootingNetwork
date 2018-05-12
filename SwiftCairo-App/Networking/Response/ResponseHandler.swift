@@ -27,7 +27,7 @@ extension HandleAlamoResponse {
             completion?(ServerResponse<T>.failure(error as? LocalizedError))
         case .success(let value):
             do {
-                let modules = try T(data: data)
+                let modules = try T(data: value)
                 completion?(ServerResponse<T>.success(modules))
             }catch {
                 completion?(ServerResponse<T>.failure(error as? LocalizedError))
