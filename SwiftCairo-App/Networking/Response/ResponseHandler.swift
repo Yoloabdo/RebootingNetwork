@@ -22,25 +22,17 @@ protocol HandleAlamoResponse {
 extension HandleAlamoResponse {
     
     func handleResponse<T: CodableInit>(_ response: DataResponse<Data>, completion: CallResponse<T>) {
-        if let error = response.error {
-            // handle errors
+        switch response.result {
+        case .failure(let error):
             completion?(ServerResponse<T>.failure(error as? LocalizedError))
-            return
-        }
-        guard let data = response.result.value else {
-            completion?(ServerResponse<T>.failure(response.error as? LocalizedError))
-            return
-        }
-        do {
-            let response = try DefaultResponse(data: data)
-            if response.status == 1 {
+        case .success(let value):
+            do {
                 let modules = try T(data: data)
                 completion?(ServerResponse<T>.success(modules))
-            }else{
-                completion?(ServerResponse<T>.failure(APIError(rawValue: response.status)))
+            }catch {
+                completion?(ServerResponse<T>.failure(error as? LocalizedError))
             }
-        }catch {
-            completion?(ServerResponse<T>.failure(error as? LocalizedError))
         }
     }
+    
 }
