@@ -22,7 +22,6 @@ protocol APIRequestHandler: HandleAlamoResponse {
     ///
     /// - Parameters:
     ///   - decoder: Codable confirmed class/struct, Model.type.
-    ///   - requestURL: Server request.
     ///   - completion: Results of the request, general errors cases handled.
     /// - Returns: Void.
     func send<T: CodableInit>(_ decoder: T.Type, completion: CallResponse<T>)
