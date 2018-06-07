@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-enum UserRouter: URLRequestConvertible, URLRequestBuilder {
+enum UserRouter: URLRequestBuilder {
 
     case login(email: String, password: String)
     case register(email: String, password: String, phone: String)
@@ -44,17 +44,7 @@ enum UserRouter: URLRequestConvertible, URLRequestBuilder {
         return .post
     }
     
-    internal var encoding: ParameterEncoding {
-        switch method {
-        case .get:
-            return URLEncoding.default
-        default:
-            return JSONEncoding.default
-        }
-    }
     
-    // MARK: - URLRequestConvertible
-    func asURLRequest() throws -> URLRequest {
-        return try encoding.encode(urlRequest, with: parameters)
-    }
+    
+   
 }

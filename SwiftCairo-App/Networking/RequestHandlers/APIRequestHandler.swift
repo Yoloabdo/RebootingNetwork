@@ -25,13 +25,13 @@ protocol APIRequestHandler: HandleAlamoResponse {
     ///   - requestURL: Server request.
     ///   - completion: Results of the request, general errors cases handled.
     /// - Returns: Void.
-    func callServerWith<T: CodableInit>(_ decoder: T.Type, requestURL: URLRequestConvertible, completion: CallResponse<T>) -> Void
+    func send<T: CodableInit>(_ decoder: T.Type, completion: CallResponse<T>)
 }
 
-extension APIRequestHandler  {
+extension APIRequestHandler where Self: URLRequestConvertible {
 
-    func callServerWith<T: CodableInit>(_ decoder: T.Type, requestURL: URLRequestConvertible, completion: CallResponse<T>) -> Void{
-        request(requestURL).validate().responseData {(response) in
+    func send<T: CodableInit>(_ decoder: T.Type, completion: CallResponse<T>) {
+        request(self).validate().responseData {(response) in
             self.handleResponse(response, completion: completion)
         }
     }

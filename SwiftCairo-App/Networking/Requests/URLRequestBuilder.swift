@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-protocol URLRequestBuilder {
+protocol URLRequestBuilder: URLRequestConvertible, APIRequestHandler {
     
     var mainURL: URL { get }
     var requestURL: URL { get }
@@ -29,8 +29,17 @@ protocol URLRequestBuilder {
 
 
 extension URLRequestBuilder {
+    var encoding: ParameterEncoding {
+        switch method {
+        case .get:
+            return URLEncoding.default
+        default:
+            return JSONEncoding.default
+        }
+    }
+    
     var mainURL: URL  {
-        return URL(string: "https://f01098d1-94c3-403b-bbbd-f850b101b35b.mock.pstmn.io")!
+        return URL(string: "https://live.mysite.com")!
     }
     
     var requestURL: URL {
@@ -41,5 +50,10 @@ extension URLRequestBuilder {
         var request = URLRequest(url: requestURL)
         request.httpMethod = method.rawValue
         return request
+    }
+    
+    // MARK: - URLRequestConvertible
+    func asURLRequest() throws -> URLRequest {
+        return try encoding.encode(urlRequest, with: parameters)
     }
 }
