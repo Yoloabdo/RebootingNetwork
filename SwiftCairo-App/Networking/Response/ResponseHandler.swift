@@ -17,6 +17,11 @@ protocol HandleAlamoResponse {
     ///   - response: response from network request, for now alamofire Data response
     ///   - completion: completing processing the json response, and delivering it in the completion handler
     func handleResponse<T: CodableInit>(_ response: DataResponse<Data>, completion: CallResponse<T>)
+    
+    
+    
+    
+    func handleResponseNative<T:CodableInit>(data: Data?, response: URLResponse?, error: Error?, completion: CallResponse<T>)
 }
 
 extension HandleAlamoResponse {
@@ -35,4 +40,18 @@ extension HandleAlamoResponse {
         }
     }
     
+    
+    func handleResponseNative<T:CodableInit>(data: Data?, response: URLResponse?, error: Error?, completion: CallResponse<T>) {
+        guard let data = data else {
+            completion?(ServerResponse<T>.failure(error as? LocalizedError))
+            return
+        }
+        
+        do {
+            let modules = try T(data: data)
+            completion?(ServerResponse<T>.success(modules))
+        }catch {
+            completion?(ServerResponse<T>.failure(error as? LocalizedError))
+        }
+    }
 }

@@ -34,7 +34,16 @@ extension APIRequestHandler where Self: URLRequestConvertible {
             self.handleResponse(response, completion: completion)
         }
     }
+    
+    
+    func sendNative<T: CodableInit>(_ decoder: T.Type, completion: CallResponse<T>) {
+        URLSession.shared.dataTask(with: try! self.asURLRequest()) { (data, url, error) in
+            self.handleResponseNative(data: data, response: url, error: error, completion: completion)
+        }.resume()
+    }
 }
+
+
 
 
 

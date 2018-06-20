@@ -81,6 +81,18 @@ extension ViewController {
                 self?.textView.text = value.apiToken
             }
         }
+        
+        
+        
+        UserRouter.login(email: "ali@ali.gmail.com", password: "test12345").sendNative(SwiftCairoUser.self) { (response) in
+            switch response {
+            case .failure(let error):
+                // TODO: - Handle error as you want, printing isn't handling.
+                print(error)
+            case .success(let value):
+                self.textView.text = value.apiToken
+            }
+        }
     }
 }
 
