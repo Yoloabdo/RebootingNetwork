@@ -11,6 +11,7 @@
 
 ### For using PromiseKit
 Check the blog post on: [Medium] (https://medium.com/@yoloabdo/promising-network-layer-f13657d3032d).
+<br>
 Branch: [promises](https://github.com/Yoloabdo/RebootingNetwork/tree/promises)
 
 ### For using URLSession
