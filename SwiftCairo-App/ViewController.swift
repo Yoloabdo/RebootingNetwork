@@ -75,9 +75,9 @@ extension ViewController {
         // creating request with the builder enum
         UserRouter.login(email: "ali@ali.gmail.com", password: "test12345").send(SwiftCairoUser.self).done { (user) in
             print(user)
-            }.catch { (error) in
+        }.catch { (error) in
                 // show error to user
-                print(error.localizedDescription)
+                print(error.localizedDescription ?? "Error")
         }
     }
 }
