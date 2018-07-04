@@ -17,7 +17,7 @@ Branch: [promises](https://github.com/Yoloabdo/RebootingNetwork/tree/promises)
 ### For using URLSession
 Branch: [Native](https://github.com/Yoloabdo/RebootingNetwork/tree/Native)
 
-#### In case you don't know what's swiftCairo, and you're from Cairo, you should know more about it, twitter: @swiftCairo
+#### In case you don't know what's swiftCairo, and you're from Cairo, you should know more about it, twitter: [@swiftCairo](https://twitter.com/SwiftCairo)
 
 </I>
 
