@@ -23,6 +23,7 @@
 		50720B0620A2E3CF00BCBF51 /* SwiftCairoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720B0520A2E3CF00BCBF51 /* SwiftCairoUser.swift */; };
 		50720B0720A2FD8300BCBF51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AD120A2DC9800BCBF51 /* AppDelegate.swift */; };
 		50720B0920A2FEAD00BCBF51 /* AlamofireResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720B0820A2FEAD00BCBF51 /* AlamofireResponse.swift */; };
+		50A8214820EC81F700DCA685 /* UploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A8214720EC81F700DCA685 /* UploadData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		50720AF120A2DD0800BCBF51 /* APIRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestHandler.swift; sourceTree = "<group>"; };
 		50720B0520A2E3CF00BCBF51 /* SwiftCairoUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCairoUser.swift; sourceTree = "<group>"; };
 		50720B0820A2FEAD00BCBF51 /* AlamofireResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireResponse.swift; sourceTree = "<group>"; };
+		50A8214720EC81F700DCA685 /* UploadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadData.swift; sourceTree = "<group>"; };
 		6B124807A4DF3A7D3303C1D8 /* Pods_SwiftCairo_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftCairo_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2A51ACBAA599E53E0DD61F /* Pods-SwiftCairo-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCairo-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftCairo-App/Pods-SwiftCairo-App.debug.xcconfig"; sourceTree = "<group>"; };
 		C2A7DAD6568D8163CFC992CD /* Pods-SwiftCairo-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftCairo-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftCairo-App/Pods-SwiftCairo-App.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			children = (
 				50720AE520A2DD0800BCBF51 /* UserRequest.swift */,
 				50720AE620A2DD0800BCBF51 /* URLRequestBuilder.swift */,
+				50A8214720EC81F700DCA685 /* UploadData.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				50720B0220A2E0D600BCBF51 /* ServerResponse.swift in Sources */,
 				50720B0320A2E0D600BCBF51 /* DefaultResponse.swift in Sources */,
 				50720B0620A2E3CF00BCBF51 /* SwiftCairoUser.swift in Sources */,
+				50A8214820EC81F700DCA685 /* UploadData.swift in Sources */,
 				50720B0420A2E0D600BCBF51 /* APIRequestHandler.swift in Sources */,
 				50720AD420A2DC9800BCBF51 /* ViewController.swift in Sources */,
 			);
