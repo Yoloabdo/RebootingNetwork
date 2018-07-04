@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestUser3()
     }
 
     
@@ -53,7 +54,7 @@ class ViewController: UIViewController {
     /// Second version, it uses request extension avalialbe on Quicktype site
     /// same as above request, with url, params, etc
     func requestUser1() {
-        request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseSwiftCairoUser { [weak self] (response) in
+        _ = request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseSwiftCairoUser { [weak self] (response) in
             self?.textView?.text = response.result.value.debugDescription
         }
     }
@@ -72,14 +73,11 @@ extension ViewController {
     /// This 4th version uses our protocol that has implemented function to call our server, uses a URLRequest builder, to create the request and send it to our network request handler, the function is a wrapper around alamofire, this protocol will free us from adding "import alamofire" in every VC, VM, class we need to call network within.
     func requestUser3() {
         // creating request with the builder enum
-        UserRouter.login(email: "ali@ali.gmail.com", password: "test12345").send(SwiftCairoUser.self) {[weak self] (response) in
-            switch response {
-            case .failure(let error):
-                // TODO: - Handle error as you want, printing isn't handling.
-                print(error)
-            case .success(let value):
-                self?.textView.text = value.apiToken
-            }
+        UserRouter.login(email: "ali@ali.gmail.com", password: "test12345").send(SwiftCairoUser.self).done { (user) in
+            print(user)
+            }.catch { (error) in
+                // show error to user
+                print(error.localizedDescription)
         }
     }
 }

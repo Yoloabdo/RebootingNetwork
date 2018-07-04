@@ -18,7 +18,7 @@ enum UserRouter: URLRequestBuilder {
     internal var path: String {
         switch self {
         case .login:
-            return "login"
+            return ""
         case .register:
             return "register"            
         }
@@ -43,8 +43,6 @@ enum UserRouter: URLRequestBuilder {
     internal var method: HTTPMethod {
         return .post
     }
-    
-    
     
    
 }

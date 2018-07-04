@@ -39,7 +39,7 @@ extension URLRequestBuilder {
     }
     
     var mainURL: URL  {
-        return URL(string: "https://live.mysite.com")!
+        return URL(string: "https://daleelstore.com/api/v1/best_selling_cards")!
     }
     
     var requestURL: URL {

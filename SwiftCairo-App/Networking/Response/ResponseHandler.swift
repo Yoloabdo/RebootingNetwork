@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import PromiseKit
 
 
 protocol HandleAlamoResponse {
@@ -15,24 +16,22 @@ protocol HandleAlamoResponse {
     ///
     /// - Parameters:
     ///   - response: response from network request, for now alamofire Data response
-    ///   - completion: completing processing the json response, and delivering it in the completion handler
-    func handleResponse<T: CodableInit>(_ response: DataResponse<Data>, completion: CallResponse<T>)
+    ///   - Return: Promise with Data into the generic Module
+    func handleResponse<T: CodableInit>(_ response: Data) -> Promise<T>
 }
 
 extension HandleAlamoResponse {
     
-    func handleResponse<T: CodableInit>(_ response: DataResponse<Data>, completion: CallResponse<T>) {
-        switch response.result {
-        case .failure(let error):
-            completion?(ServerResponse<T>.failure(error as? LocalizedError))
-        case .success(let value):
+    func handleResponse<T: CodableInit>(_ response: Data) -> Promise<T> {
+        
+        return Promise<T> { promise in
             do {
-                let modules = try T(data: value)
-                completion?(ServerResponse<T>.success(modules))
+                let modules = try T(data: response)
+                promise.fulfill(modules)
             }catch {
-                completion?(ServerResponse<T>.failure(error as? LocalizedError))
+                promise.reject(error)
             }
         }
     }
-    
 }
+

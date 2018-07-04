@@ -7,5 +7,5 @@ target 'SwiftCairo-App' do
 
   # Pods for SwiftCairo-App
   pod 'Alamofire'
-
+  pod 'PromiseKit/Alamofire'
 end
