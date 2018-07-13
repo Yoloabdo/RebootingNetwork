@@ -1,8 +1,8 @@
 ![Protocol oriented networking in swift](https://github.com/Yoloabdo/RebootingNetwork/blob/master/head.png)
-# Rebooting network
+# Rebooting network(Protocol oriented networking in swift)
 
 ## Swift Cairo
-<I>This talk was given in the first meetup for SwiftCairo in 9May, here's for those who requested it. </I>
+<I>This repo contains a code for the network layer and talk slides that was given in the first meetup for SwiftCairo in 9May, about the topic here's for those who requested it. </I>
 
 ## Medium blog about it: 
 [First Blog: Protocol-Oriented Network in swift](https://medium.com/@yoloabdo/protocol-oriented-ios-network-layer-422575314cc2)
