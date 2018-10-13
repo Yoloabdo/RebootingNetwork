@@ -20,3 +20,5 @@ extension CodableInit where Self: Codable {
     }
 }
 
+extension Array where Element: Codable { }
+
