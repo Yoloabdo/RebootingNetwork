@@ -18,17 +18,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        requestTask?.cancel()
+
+    }
     
-    let url = "https://f01098d1-94c3-403b-bbbd-f850b101b35b.mock.pstmn.io/login"
+    let url = "https://nodeswiftcairo.herokuapp.com/api/timelines"
     
     let headers = ["x-api-key":"0a568370aca4428aa292520e9bdf72c9"]
     let params = ["email": "ali@alic.om", "password": "2341234"]
+    var requestTask: DataRequest?
 
     /// First trial, sends url, params, and so on, very basic usage of alamofire
     /// then id decode the json into static model
     // updates the view, vc, vm insdise the closure
     func requestUser0() {
-        request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseData { (response) in
+        
+        requestTask = request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseData {[unowned self] (response) in
             switch response.result {
             case .failure(let error):
                 // handle error
@@ -45,6 +52,7 @@ class ViewController: UIViewController {
                 }
             }
         }
+        
         
     }
     
@@ -81,6 +89,59 @@ extension ViewController {
                 self?.textView.text = value.apiToken
             }
         }
+        
+        func getUser() {
+            
+        }
     }
 }
 
+
+
+
+struct User: CodableInit {
+    let id: Int
+    let firstName: String
+    let lastName: String
+    let image: String
+    let email: String
+}
+
+
+
+class UserManager {
+    static let shared = UserManager()
+    func currentUser(completion: @escaping (User) -> Void) {
+        guard let user = currentUser else {
+            callApi(completion: completion)
+            return
+        }
+        completion(user)
+        callApi(completion: completion)
+    }
+    
+    func callApi(completion: @escaping (User) -> Void)  {
+        UserRouter.userProfile.send(User.self) { (response) in
+            switch response {
+            case .failure(let error):
+                print(error)
+            case .success(let user):
+                self.currentUser = user
+                completion(user)
+            }
+        }
+    }
+    
+    
+    var memoryUser: User?
+
+    var currentUser: User? {
+        get {
+            return UserDefaults.standard.object(forKey: "User") as? User
+        }set{
+            UserDefaults.standard.set(newValue, forKey: "User")
+        }
+    }
+    
+    var realmUser: User?
+}

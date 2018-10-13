@@ -29,6 +29,8 @@ extension APIRequestHandler where Self: URLRequestBuilder {
         }else{
             request(self).validate().responseData {(response) in
                 self.handleResponse(response, completion: completion)
+                }.responseString { (response) in
+                    print(response)
             }
         }
     }

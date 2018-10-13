@@ -15,7 +15,8 @@ protocol URLRequestBuilder: URLRequestConvertible, APIRequestHandler {
     var requestURL: URL { get }
     // MARK: - Path
     var path: String { get }
-    
+    var headers: HTTPHeaders? { get }
+
     // MARK: - Parameters
     var parameters: Parameters? { get }
     
@@ -44,6 +45,14 @@ extension URLRequestBuilder {
     
     var requestURL: URL {
         return mainURL.appendingPathComponent(path)
+    }
+    
+    var headers: HTTPHeaders? {
+        if let token = UserDefaults.standard.string(forKey: "Token"){
+            return ["token": token]
+        }else{
+            return nil
+        }
     }
     
     var urlRequest: URLRequest {

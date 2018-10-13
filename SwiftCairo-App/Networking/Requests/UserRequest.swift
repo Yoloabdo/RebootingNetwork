@@ -9,18 +9,22 @@
 import Foundation
 import Alamofire
 
+
 enum UserRouter: URLRequestBuilder {
+    
 
     case login(email: String, password: String)
     case register(email: String, password: String, phone: String)
-    
+    case userProfile
     // MARK: - Path
     internal var path: String {
         switch self {
         case .login:
-            return "login"
+            return "user/login"
         case .register:
-            return "register"            
+            return "register"
+        case .userProfile:
+            return "user"
         }
     }
 
@@ -28,23 +32,28 @@ enum UserRouter: URLRequestBuilder {
     internal var parameters: Parameters? {
         var params = Parameters.init()
         switch self {
-        case .login(let email, let password):
+        case let .login(email,password):
             params["email"] = email
             params["password"] = password
         case .register(let email, let password, let phone):
             params["email"] = email
             params["password"] = password
             params["phone"] = phone
+        default: break
         }
         return params
     }
     
     // MARK: - Methods
     internal var method: HTTPMethod {
-        return .post
+        switch self {
+        case .userProfile:
+            return .get
+        default:
+            return .post
+        }
     }
-    
-    
-    
-   
 }
+
+
+
