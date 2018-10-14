@@ -26,6 +26,8 @@ protocol URLRequestBuilder: URLRequestConvertible, APIRequestHandler {
     var encoding: ParameterEncoding { get }
     
     var urlRequest: URLRequest { get }
+    
+    var cachingPolicy: URLRequest.CachePolicy { get }
 }
 
 
@@ -58,7 +60,13 @@ extension URLRequestBuilder {
     var urlRequest: URLRequest {
         var request = URLRequest(url: requestURL)
         request.httpMethod = method.rawValue
+        request.cachePolicy = cachingPolicy
         return request
+    }
+    
+    
+    var cachingPolicy: URLRequest.CachePolicy {
+        return URLRequest.CachePolicy.useProtocolCachePolicy
     }
     
     // MARK: - URLRequestConvertible

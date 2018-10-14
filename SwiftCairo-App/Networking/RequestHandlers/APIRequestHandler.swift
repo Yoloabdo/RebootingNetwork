@@ -13,7 +13,7 @@ import Alamofire
 
 /// Response completion handler beautified.
 typealias CallResponse<T> = ((ServerResponse<T>) -> Void)?
-
+typealias Networkrequest = DataRequest
 
 /// API protocol, The alamofire wrapper
 protocol APIRequestHandler: HandleAlamoResponse {
@@ -21,18 +21,25 @@ protocol APIRequestHandler: HandleAlamoResponse {
     
 }
 
+protocol Cancelable {
+    func cancel()
+}
+
+extension DataRequest: Cancelable {}
+
 extension APIRequestHandler where Self: URLRequestBuilder {
 
-    func send<T: CodableInit>(_ decoder: T.Type, data: UploadData? = nil, progress: ((Progress) -> Void)? = nil, completion: CallResponse<T>) {
+    func send<T: CodableInit>(_ decoder: T.Type, data: UploadData? = nil, progress: ((Progress) -> Void)? = nil, completion: CallResponse<T>) -> Cancelable? {
         if let data = data {
             uploadToServerWith(decoder, data: data, request: self, parameters: self.parameters, progress: progress, completion: completion)
         }else{
-            request(self).validate().responseData {(response) in
+            return request(self).validate().responseData {(response) in
                 self.handleResponse(response, completion: completion)
                 }.responseString { (response) in
                     print(response)
             }
         }
+        return nil
     }
 }
 
@@ -47,15 +54,12 @@ extension APIRequestHandler {
             for (key, value) in parameters {
                 mul.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
             }
-        }, with: request) { (response) in
+        }, with: request) {(response) in
             switch response {
             case .success(let requestUp, _, _):
                 requestUp.responseData(completionHandler: { (results) in
                     self.handleResponse(results, completion: completion)
-                }).responseString(completionHandler: { (string) in
-                    print(string.result.value)
                 })
-                
             case .failure(let error):
                 completion?(ServerResponse<T>.failure(error as? LocalizedError))
             }
