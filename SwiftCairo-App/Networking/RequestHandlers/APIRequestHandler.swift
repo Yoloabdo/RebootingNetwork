@@ -32,6 +32,15 @@ extension APIRequestHandler where Self: URLRequestBuilder {
             }
         }
     }
+    
+    func cancelRequest() -> Void {
+        let sessionManager = Alamofire.SessionManager.default
+        sessionManager.session.getTasksWithCompletionHandler { dataTasks, uploadTasks, downloadTasks in
+            dataTasks.first(where: { $0.originalRequest?.url == self.requestURL})?.cancel()
+            uploadTasks.first(where: { $0.originalRequest?.url == self.requestURL})?.cancel()
+            downloadTasks.first(where: { $0.originalRequest?.url == self.requestURL})?.cancel()
+        }
+    }
 }
 
 
