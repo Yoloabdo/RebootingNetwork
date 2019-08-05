@@ -12,7 +12,7 @@ import Alamofire
 
 
 /// Response completion handler beautified.
-typealias CallResponse<T> = ((ServerResponse<T>) -> Void)?
+typealias CallResponse<T> = ((Result<T>) -> Void)?
 
 
 /// API protocol, The alamofire wrapper
@@ -23,12 +23,15 @@ protocol APIRequestHandler: HandleAlamoResponse {
 
 extension APIRequestHandler where Self: URLRequestBuilder {
 
-    func send<T: CodableInit>(_ decoder: T.Type, data: UploadData? = nil, progress: ((Progress) -> Void)? = nil, completion: CallResponse<T>) {
+    func send<T: CodableInit>(_ decoder: T.Type, data: UploadData? = nil, progress: ((Progress) -> Void)? = nil, then: CallResponse<T>) {
         if let data = data {
-            uploadToServerWith(decoder, data: data, request: self, parameters: self.parameters, progress: progress, completion: completion)
+            uploadToServerWith(decoder, data: data, request: self, parameters: self.parameters, progress: progress, then: then)
         }else{
             request(self).validate().responseData {(response) in
-                self.handleResponse(response, completion: completion)
+                self.handleResponse(response, then: then)
+            }.responseJSON { (response) in
+                    // handle debug
+                    print(response.result.value)
             }
         }
     }
@@ -46,7 +49,7 @@ extension APIRequestHandler where Self: URLRequestBuilder {
 
 extension APIRequestHandler {
     
-    private func uploadToServerWith<T: CodableInit>(_ decoder: T.Type, data: UploadData, request: URLRequestConvertible, parameters: Parameters?, progress: ((Progress) -> Void)?, completion: CallResponse<T>) {
+    private func uploadToServerWith<T: CodableInit>(_ decoder: T.Type, data: UploadData, request: URLRequestConvertible, parameters: Parameters?, progress: ((Progress) -> Void)?, then: CallResponse<T>) {
         
         upload(multipartFormData: { (mul) in
             mul.append(data.data, withName: data.name, fileName: data.fileName, mimeType: data.mimeType)
@@ -58,13 +61,13 @@ extension APIRequestHandler {
             switch response {
             case .success(let requestUp, _, _):
                 requestUp.responseData(completionHandler: { (results) in
-                    self.handleResponse(results, completion: completion)
+                    self.handleResponse(results, then: then)
                 }).responseString(completionHandler: { (string) in
                     print(string.result.value)
                 })
                 
             case .failure(let error):
-                completion?(ServerResponse<T>.failure(error as? LocalizedError))
+                then?(Result<T>.failure(error))
             }
         }
     }

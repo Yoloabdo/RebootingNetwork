@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,6 @@
 		50720AFF20A2E0D600BCBF51 /* CodableInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AE920A2DD0800BCBF51 /* CodableInit.swift */; };
 		50720B0020A2E0D600BCBF51 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AEA20A2DD0800BCBF51 /* ResponseHandler.swift */; };
 		50720B0120A2E0D600BCBF51 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AEB20A2DD0800BCBF51 /* APIError.swift */; };
-		50720B0220A2E0D600BCBF51 /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AEC20A2DD0800BCBF51 /* ServerResponse.swift */; };
 		50720B0320A2E0D600BCBF51 /* DefaultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AED20A2DD0800BCBF51 /* DefaultResponse.swift */; };
 		50720B0420A2E0D600BCBF51 /* APIRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720AF120A2DD0800BCBF51 /* APIRequestHandler.swift */; };
 		50720B0620A2E3CF00BCBF51 /* SwiftCairoUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50720B0520A2E3CF00BCBF51 /* SwiftCairoUser.swift */; };
@@ -39,7 +38,6 @@
 		50720AE920A2DD0800BCBF51 /* CodableInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableInit.swift; sourceTree = "<group>"; };
 		50720AEA20A2DD0800BCBF51 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		50720AEB20A2DD0800BCBF51 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		50720AEC20A2DD0800BCBF51 /* ServerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
 		50720AED20A2DD0800BCBF51 /* DefaultResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultResponse.swift; sourceTree = "<group>"; };
 		50720AF120A2DD0800BCBF51 /* APIRequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestHandler.swift; sourceTree = "<group>"; };
 		50720B0520A2E3CF00BCBF51 /* SwiftCairoUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCairoUser.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				50720AE920A2DD0800BCBF51 /* CodableInit.swift */,
 				50720AEA20A2DD0800BCBF51 /* ResponseHandler.swift */,
 				50720AEB20A2DD0800BCBF51 /* APIError.swift */,
-				50720AEC20A2DD0800BCBF51 /* ServerResponse.swift */,
 				50720AED20A2DD0800BCBF51 /* DefaultResponse.swift */,
 				50720B0820A2FEAD00BCBF51 /* AlamofireResponse.swift */,
 			);
@@ -245,17 +242,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftCairo-App/Pods-SwiftCairo-App-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftCairo-App/Pods-SwiftCairo-App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftCairo-App/Pods-SwiftCairo-App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftCairo-App/Pods-SwiftCairo-App-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftCairo-App/Pods-SwiftCairo-App-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -272,7 +268,6 @@
 				50720B0020A2E0D600BCBF51 /* ResponseHandler.swift in Sources */,
 				50720B0920A2FEAD00BCBF51 /* AlamofireResponse.swift in Sources */,
 				50720B0120A2E0D600BCBF51 /* APIError.swift in Sources */,
-				50720B0220A2E0D600BCBF51 /* ServerResponse.swift in Sources */,
 				50720B0320A2E0D600BCBF51 /* DefaultResponse.swift in Sources */,
 				50720B0620A2E3CF00BCBF51 /* SwiftCairoUser.swift in Sources */,
 				50A8214820EC81F700DCA685 /* UploadData.swift in Sources */,

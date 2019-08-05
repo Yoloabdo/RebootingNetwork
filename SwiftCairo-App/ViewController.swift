@@ -72,7 +72,11 @@ extension ViewController {
     /// This 4th version uses our protocol that has implemented function to call our server, uses a URLRequest builder, to create the request and send it to our network request handler, the function is a wrapper around alamofire, this protocol will free us from adding "import alamofire" in every VC, VM, class we need to call network within.
     func requestUser3() {
         // creating request with the builder enum
-        UserRouter.login(email: "ali@ali.gmail.com", password: "test12345").send(SwiftCairoUser.self) {[weak self] (response) in
+        UserRouter.login(email: "ali@ali.gmail.com", password: "test12345").send(SwiftCairoUser.self, then: userLoginResponse)
+    }
+    
+    var userLoginResponse: HandleResponse<SwiftCairoUser> {
+        return {[weak self] (response) in
             switch response {
             case .failure(let error):
                 // TODO: - Handle error as you want, printing isn't handling.
