@@ -74,6 +74,6 @@ import Foundation
  */
 
 /// Errors enum, to be sent back to network caller, so he handle it gracefully.
-enum APIError: Int, LocalizedError, Codable {
+public enum APIError: Int, LocalizedError, Codable {
     case serviceProblem, success, userInfoNotMatching, userBlocked, userNotActivated, userNotAuth, missingParams, emailDublicated, passwordMissing, languageNotSupported, timezoneRequired, usernameDublicated, projectNameReuqired
 }

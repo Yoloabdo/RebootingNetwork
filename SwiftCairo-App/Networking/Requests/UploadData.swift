@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UploadData {
+public struct UploadData {
     var data: Data
     var fileName, mimeType, name: String
 }

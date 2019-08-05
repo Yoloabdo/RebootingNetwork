@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-protocol URLRequestBuilder: URLRequestConvertible, APIRequestHandler {
+public protocol URLRequestBuilder: URLRequestConvertible, APIRequestHandler {
     
     var mainURL: URL { get }
     var requestURL: URL { get }

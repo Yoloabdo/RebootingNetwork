@@ -9,10 +9,10 @@
 import Foundation
 import Alamofire
 
-typealias HandleResponse<T: CodableInit> = (Result<T>) -> Void
+public typealias HandleResponse<T: CodableInit> = (Result<T>) -> Void
 
 
-protocol HandleAlamoResponse {
+public protocol HandleAlamoResponse {
     /// Handles request response, never called anywhere but APIRequestHandler
     ///
     /// - Parameters:

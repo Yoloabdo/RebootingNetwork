@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CodableInit {
+public protocol CodableInit {
     init(data: Data) throws
 }
 
