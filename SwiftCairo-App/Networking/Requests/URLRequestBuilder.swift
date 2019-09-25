@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-public protocol URLRequestBuilder: URLRequestConvertible, APIRequestHandler {
+protocol URLRequestBuilder: URLRequestConvertible, APIRequestHandler {
     
     var mainURL: URL { get }
     var requestURL: URL { get }
@@ -25,6 +25,8 @@ public protocol URLRequestBuilder: URLRequestConvertible, APIRequestHandler {
     var encoding: ParameterEncoding { get }
     
     var urlRequest: URLRequest { get }
+    
+    associatedtype ResponseModel: CodableInit
 }
 
 

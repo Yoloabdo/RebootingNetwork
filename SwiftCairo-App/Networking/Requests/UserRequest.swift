@@ -9,8 +9,9 @@
 import Foundation
 import Alamofire
 
-enum UserRouter: URLRequestBuilder {
-
+enum UserRouter<T: CodableInit>: URLRequestBuilder {
+    typealias ResponseModel = T
+    
     case login(email: String, password: String)
     case register(email: String, password: String, phone: String)
     
@@ -43,8 +44,4 @@ enum UserRouter: URLRequestBuilder {
     internal var method: HTTPMethod {
         return .post
     }
-    
-    
-    
-   
 }

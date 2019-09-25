@@ -12,7 +12,7 @@ import Alamofire
 public typealias HandleResponse<T: CodableInit> = (Result<T>) -> Void
 
 
-public protocol HandleAlamoResponse {
+protocol HandleAlamoResponse {
     /// Handles request response, never called anywhere but APIRequestHandler
     ///
     /// - Parameters:
