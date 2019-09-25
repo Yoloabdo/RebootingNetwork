@@ -18,6 +18,18 @@ Branch: [promises](https://github.com/Yoloabdo/RebootingNetwork/tree/promises)
 ### For using URLSession
 Branch: [Native](https://github.com/Yoloabdo/RebootingNetwork/tree/Native)
 
+### what's new in this branch?
+#### ParseModel: Now your request will contain it's parsing model as well, for a better context. 
+#### Here's an example: 
+
+```
+//Before:
+UserRouter.login(email: "ali@ali.gmail.com", password: "test12345").send(SwiftCairoUser.self, then: userLoginResponse)
+
+//After:
+UserRouter<SwiftCairoUser>.login(email: "ali@ali.gmail.com", password: "test12345").send(then: userLoginResponse)
+```
+
 #### In case you don't know what's swiftCairo, and you're from Cairo, you should know more about it, twitter: [@swiftCairo](https://twitter.com/SwiftCairo)
 
 </I>
