@@ -12,27 +12,19 @@ import Alamofire
 public typealias HandleResponse<T: CodableInit> = (Result<T>) -> Void
 
 
-protocol HandleAlamoResponse {
-    /// Handles request response, never called anywhere but APIRequestHandler
-    ///
-    /// - Parameters:
-    ///   - response: response from network request, for now alamofire Data response
-    ///   - completion: completing processing the json response, and delivering it in the completion handler
-    func handleResponse<T: CodableInit>(_ response: DataResponse<Data>, then: CallResponse<T>)
-}
-
-extension HandleAlamoResponse {
+extension URLRequestBuilder {
     
-    func handleResponse<T: CodableInit>(_ response: DataResponse<Data>, then: CallResponse<T>) {
+    // MARK: - Response Handling
+    func handleResponse(_ response: DataResponse<Data>, then: CallResponse<ResponseModel>){
         switch response.result {
         case .failure(let error):
-            then?(Result<T>.failure(error))
+            then?(Result<ResponseModel>.failure(error))
         case .success(let value):
             do {
-                let modules = try T(data: value)
-                then?(Result<T>.success(modules))
+                let modules = try ResponseModel(data: value)
+                then?(Result<ResponseModel>.success(modules))
             }catch {
-                then?(Result<T>.failure(error))
+                then?(Result<ResponseModel>.failure(error))
             }
         }
     }

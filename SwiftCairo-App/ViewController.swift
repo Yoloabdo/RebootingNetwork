@@ -88,3 +88,11 @@ extension ViewController {
     }
 }
 
+
+class UserRepo {
+    
+    func loginUser(email: String, password: String, then: CallResponse<SwiftCairoUser>) {
+        UserRouter<SwiftCairoUser>.login(email: email, password: password).send(then: then)
+    }
+}
+

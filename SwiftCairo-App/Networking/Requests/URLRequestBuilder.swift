@@ -26,10 +26,14 @@ protocol URLRequestBuilder: URLRequestConvertible, APIRequestHandler {
     
     var urlRequest: URLRequest { get }
     
+    // MARK: - Response handling
+    
     associatedtype ResponseModel: CodableInit
+    
+    func handleResponse(_ response: DataResponse<Data>, then: CallResponse<ResponseModel>)
 }
 
-
+//MARK: - Default implementation
 extension URLRequestBuilder {
     var encoding: ParameterEncoding {
         switch method {
@@ -58,4 +62,5 @@ extension URLRequestBuilder {
     func asURLRequest() throws -> URLRequest {
         return try encoding.encode(urlRequest, with: parameters)
     }
+    
 }

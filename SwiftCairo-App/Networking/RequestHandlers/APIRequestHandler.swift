@@ -16,8 +16,7 @@ typealias CallResponse<T> = ((Result<T>) -> Void)?
 
 
 /// API protocol, The alamofire wrapper
-protocol APIRequestHandler: HandleAlamoResponse {
-    
+protocol APIRequestHandler {
     
 }
 
