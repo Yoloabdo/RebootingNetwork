@@ -12,7 +12,7 @@ import Alamofire
 
 
 /// Response completion handler beautified.
-typealias CallResponse<T> = ((ServerResponse<T>) -> Void)?
+typealias CallResponse<T> = ((Result<T, Error>) -> Void)?
 
 
 /// API protocol, The alamofire wrapper
