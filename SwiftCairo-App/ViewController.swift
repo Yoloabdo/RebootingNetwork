@@ -21,14 +21,18 @@ class ViewController: UIViewController {
     
     let url = "https://f01098d1-94c3-403b-bbbd-f850b101b35b.mock.pstmn.io/login"
     
-    let headers = ["x-api-key":"0a568370aca4428aa292520e9bdf72c9"]
+    var headers: HTTPHeaders {
+        var header = HTTPHeaders()
+        header["x-api-key"] = "0a568370aca4428aa292520e9bdf72c9"
+        return header
+    }
     let params = ["email": "ali@alic.om", "password": "2341234"]
 
     /// First trial, sends url, params, and so on, very basic usage of alamofire
     /// then id decode the json into static model
     // updates the view, vc, vm insdise the closure
     func requestUser0() {
-        request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseData { (response) in
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseData { (response) in
             switch response.result {
             case .failure(let error):
                 // handle error
@@ -53,15 +57,15 @@ class ViewController: UIViewController {
     /// Second version, it uses request extension avalialbe on Quicktype site
     /// same as above request, with url, params, etc
     func requestUser1() {
-        request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseSwiftCairoUser { [weak self] (response) in
-            self?.textView?.text = response.result.value.debugDescription
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseSwiftCairoUser { [weak self] (response) in
+            self?.textView?.text = response.value.debugDescription
         }
     }
     
     /// third, same above but we rewrote the above extension to be generic
     func requestUser2(){
-        request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).response(SwiftCairoUser.self) { [weak self] (response) in
-            self?.textView.text = response.result.value.debugDescription
+        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).response(SwiftCairoUser.self) { [weak self] (response) in
+            self?.textView.text = response.value.debugDescription
         }
     }
     
@@ -75,7 +79,7 @@ extension ViewController {
         UserRouter.login(email: "ali@ali.gmail.com", password: "test12345").send(SwiftCairoUser.self, then: userLoginResponse)
     }
     
-    var userLoginResponse: HandleResponse<SwiftCairoUser> {
+    var userLoginResponse: CallResponse<SwiftCairoUser> {
         return {[weak self] (response) in
             switch response {
             case .failure(let error):

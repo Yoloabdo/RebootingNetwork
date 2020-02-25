@@ -12,14 +12,11 @@ import Alamofire
 
 
 /// Response completion handler beautified.
-typealias CallResponse<T> = ((Result<T>) -> Void)?
+typealias CallResponse<T> = ((Result<T, Error>) -> Void)?
 
 
 /// API protocol, The alamofire wrapper
-protocol APIRequestHandler: HandleAlamoResponse {
-    
-    
-}
+protocol APIRequestHandler: HandleAlamoResponse { }
 
 extension APIRequestHandler where Self: URLRequestBuilder {
 
@@ -27,17 +24,17 @@ extension APIRequestHandler where Self: URLRequestBuilder {
         if let data = data {
             uploadToServerWith(decoder, data: data, request: self, parameters: self.parameters, progress: progress, then: then)
         }else{
-            request(self).validate().responseData {(response) in
-                self.handleResponse(response, then: then)
+            AF.request(self).validate().responseData {(response) in
+                self.handleResponse(response, completion: then)
             }.responseJSON { (response) in
                     // handle debug
-                    print(response.result.value)
+                print(response.value as Any)
             }
         }
     }
     
     func cancelRequest() -> Void {
-        let sessionManager = Alamofire.SessionManager.default
+        let sessionManager = Session.default
         sessionManager.session.getTasksWithCompletionHandler { dataTasks, uploadTasks, downloadTasks in
             dataTasks.first(where: { $0.originalRequest?.url == self.requestURL})?.cancel()
             uploadTasks.first(where: { $0.originalRequest?.url == self.requestURL})?.cancel()
@@ -51,24 +48,16 @@ extension APIRequestHandler {
     
     private func uploadToServerWith<T: CodableInit>(_ decoder: T.Type, data: UploadData, request: URLRequestConvertible, parameters: Parameters?, progress: ((Progress) -> Void)?, then: CallResponse<T>) {
         
-        upload(multipartFormData: { (mul) in
+        AF.upload(multipartFormData: { mul in
             mul.append(data.data, withName: data.name, fileName: data.fileName, mimeType: data.mimeType)
             guard let parameters = parameters else { return }
             for (key, value) in parameters {
                 mul.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
             }
-        }, with: request) { (response) in
-            switch response {
-            case .success(let requestUp, _, _):
-                requestUp.responseData(completionHandler: { (results) in
-                    self.handleResponse(results, then: then)
-                }).responseString(completionHandler: { (string) in
-                    print(string.result.value)
-                })
-                
-            case .failure(let error):
-                then?(Result<T>.failure(error))
-            }
+        }, with: request).responseData { results in
+            self.handleResponse(results, completion: then)
+        }.responseString { string in
+            debugPrint(string.value as Any)
         }
     }
 }
