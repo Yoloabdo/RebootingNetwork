@@ -54,7 +54,12 @@ extension APIRequestHandler {
             for (key, value) in parameters {
                 mul.append("\(value)".data(using: String.Encoding.utf8)!, withName: key as String)
             }
-        }, with: request).responseData { results in
+            
+        }, with: request).uploadProgress(closure: { prog in
+            print(prog)
+            progress?(prog)
+        })
+        .responseData { results in
             self.handleResponse(results, completion: then)
         }.responseString { string in
             debugPrint(string.value as Any)
